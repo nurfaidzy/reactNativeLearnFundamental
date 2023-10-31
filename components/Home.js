@@ -13,7 +13,7 @@ export default function App() {
       {/* <CustomerRegistration count={count} setCount={setCount} /> */}
       <Text>Hello Word</Text>
       {/* <TodoLists /> */}
-      <SearchBox/>
+      <SearchBox />
       <TodoListSV />
     </View>
   );
