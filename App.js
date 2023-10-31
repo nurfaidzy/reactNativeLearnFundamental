@@ -1,27 +1,21 @@
-import { View, Text, StyleSheet } from "react-native";
-import React, { useState } from "react";
-import CustomerRegistration from "./components/CustomerRegistration";
-import TodoLists from "./components/TodoLists";
-import TodoListSV from "./components/TodoListSV";
-import SearchBox from "./components/SearchBox";
+import { StyleSheet } from "react-native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "./components/Home";
+import DetailScreen from "./components/screen/DetailScreen";
+
+const stack = createStackNavigator();
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <View style={style.container}>
-      {/* <CustomerRegistration count={count} setCount={setCount} /> */}
-      <Text>Hello Word</Text>
-      {/* <TodoLists /> */}
-      <SearchBox/>
-      <TodoListSV />
-    </View>
+    <NavigationContainer>
+      <stack.Navigator>
+        <stack.Screen name="Home" component={Home} />
+        <stack.Screen name="Details" component={DetailScreen} />
+      </stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const style = StyleSheet.create({
-  container: {
-    marginTop: 100,
-    backgroundColor: "powderblue",
-  },
-});
+const style = StyleSheet.create({});

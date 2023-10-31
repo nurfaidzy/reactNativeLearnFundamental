@@ -1,20 +1,31 @@
 import { View, Text, StyleSheet } from "react-native";
-import React, { useState } from "react";
-import CustomerRegistration from "./components/CustomerRegistration";
-import TodoLists from "./components/TodoLists";
-import TodoListSV from "./components/TodoListSV";
-import SearchBox from "./components/SearchBox";
+import React from "react";
+import TodoListSV from "./TodoListSV";
+import SearchBox from "./SearchBox";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
-export default function App() {
-  const [count, setCount] = useState(0);
+export default function Home() {
+  const navigation = useNavigation();
 
   return (
-    <View style={style.container}>
-      {/* <CustomerRegistration count={count} setCount={setCount} /> */}
+    <View>
       <Text>Hello Word</Text>
-      {/* <TodoLists /> */}
       <SearchBox />
       <TodoListSV />
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("Details", {
+            itemId: 70,
+            otherParams: "BlogPost",
+            otherFunction: () => {
+              alert("Hello Word");
+            },
+          })
+        }
+      >
+        <Text>Move to Detail Screen </Text>
+      </TouchableOpacity>
     </View>
   );
 }
